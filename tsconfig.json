@@ -1,5 +1,6 @@
 {
   "extends": "expo/tsconfig.base",
+  "allowSyntheticDefaultImports": true,
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
@@ -9,7 +10,8 @@
       "@screens/*": ["./src/screens/*"],
       "@storage/*": ["./src/storage/*"],
       "@theme/*": ["./src/theme/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   }
 }

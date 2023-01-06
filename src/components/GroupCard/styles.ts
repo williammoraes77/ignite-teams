@@ -13,7 +13,7 @@ export const Container = styled(TouchableOpacity)`
   align-items: center;
 
   padding: 24px;
-  margin-bottom: 12px
+  margin-bottom: 12px;
 `;
 
 export const Title = styled.Text`
@@ -26,8 +26,8 @@ export const Title = styled.Text`
 
 export const Icon = styled(UsersThree).attrs(({ theme }) => ({
   size: 32,
-  color: theme.COLORS.GREEN_700,
-  weight: 'fill'
+  color: theme.COLORS.ICON,
+  weight: "fill",
 }))`
   margin-right: 20px;
 `;

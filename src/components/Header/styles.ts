@@ -18,7 +18,13 @@ export const BackButton = styled.TouchableOpacity`
   flex: 1;
 `;
 
+export const LogoContent = styled.View`
+  padding: 13px;
+  border-radius: 19px;
+  background-color: ${({ theme }) => theme.COLORS.LOGO};
+`;
+
 export const BackIcon = styled(CaretLeft).attrs(({ theme }) => ({
   size: 36,
-  color: theme.COLORS.WHITE
+  color: theme.COLORS.TEXT,
 }))``;
