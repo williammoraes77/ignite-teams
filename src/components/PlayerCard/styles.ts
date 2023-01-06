@@ -1,16 +1,17 @@
 import styled, { css } from "styled-components/native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native";
 
-export const Container = styled.View`
+export const Container = styled(TouchableOpacity)`
   width: 100%;
-  height: 56px;
+  height: 86px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
   border-radius: 6px;
 
   flex-direction: row;
   align-items: center;
-
+  justify-content: center;
   margin-bottom: 16px;
 `;
 
