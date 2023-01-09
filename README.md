@@ -34,13 +34,13 @@
 ## Imagens
 
 <div align="center">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items1-dark.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-dark.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-light.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items3-dark.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-dark.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-light.png" alt="App theme" height="300">
-  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items5-light.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items1-dark.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-dark.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-light.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items3-dark.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-dark.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-light.png" alt="App theme" height="200">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items5-light.png" alt="App theme" height="200">
 </div>
 
 <hr />
