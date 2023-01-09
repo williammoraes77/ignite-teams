@@ -26,7 +26,7 @@
 ## Imagens
 
 <div align="center">
-  <img align="center" src="https://github.com/williammoraes77/im-here/blob/master/assets/imhere.gif" alt="App theme" height="425">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/ignite.gif" alt="App theme" height="425">
 </div>
 
 <hr />
