@@ -1,3 +1,4 @@
+import { FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css } from "styled-components/native";
 

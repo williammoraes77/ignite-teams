@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { FlatList, Alert, TextInput, Keyboard } from "react-native";
-import {
-  useRoute,
-  useNavigation,
-  useFocusEffect,
-} from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import { AppError } from "@utils/AppError";
+
+import { Container, Form, HeaderList, NumberOfPlayers } from "./styles";
 
 import { PlayerStorageDTO } from "@storage/player/PlayerStorageDTO";
 import { playerAddByGroup } from "@storage/player/playerAddByGroup";
@@ -23,9 +21,6 @@ import { Loading } from "@components/Loading";
 import { PlayerCard } from "@components/PlayerCard";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
-
-import { Container, Form, HeaderList, NumberOfPlayers } from "./styles";
-import { PlayerAvatarDTO } from "@storage/player/PlayerAvatarDTO";
 
 type RouteParams = {
   group: string;
