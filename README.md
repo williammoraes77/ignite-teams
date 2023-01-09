@@ -5,8 +5,10 @@
 
 ## Descrição do projeto
 
-<br>
 ## Ignite Tems
+
+<br>
+
 </h1>
 
 <p>Projeto desenvolvido durante o curso ignite da Rocketseat. Além do conteúdo realizado no curso adicionei algumas features nele como diferenciais, sendo elas:</p>
@@ -45,7 +47,7 @@ Tecnologias destacadas no projeto:
 ### Passo 1: Faça o clone ou download do projeto:
 
 ```sh
-git clone https://github.com/williammoraes77/im-here.git
+git clone https://github.com/williammoraes77/ignite-teams
 ```
 
 ### Passo 2: Através do terminal acesse a pasta raiz do projeto e faça o download das dependências:
