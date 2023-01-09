@@ -53,7 +53,8 @@ Tecnologias destacadas no projeto:
 
 - **React Native**
 - **Styled Components**
-- **Typescript**
+- **Async Storage**
+- **BigHeads**
 - **Expo**
 
 # 🤔 Como excutar
