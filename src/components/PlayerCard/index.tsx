@@ -1,40 +1,68 @@
 import { ButtonIcon } from "@components/ButtonIcon";
-import { TouchableOpacityProps } from "react-native";
+import { PlayerAvatarDTO } from "@storage/player/PlayerAvatarDTO";
+import { Text, TouchableOpacityProps } from "react-native";
 import { BigHead } from "react-native-bigheads";
 
 import { Container, Icon, Name } from "./styles";
 
 type Props = TouchableOpacityProps & {
   name: string;
+  avatar?: PlayerAvatarDTO;
   onRemove: () => void;
 };
 
-export function PlayerCard({ name, onRemove, ...rest }: Props) {
+export function PlayerCard({ name, avatar, onRemove, ...rest }: Props) {
   return (
     <Container {...rest}>
-      {/* <Icon name="person" /> */}
-      <BigHead
-        accessory="shades"
-        bgColor="blue"
-        bgShape="circle"
-        body="chest"
-        clothing="tankTop"
-        clothingColor="black"
-        eyebrows="angry"
-        eyes="wink"
-        facialHair="mediumBeard"
-        graphic="vue"
-        hair="short"
-        hairColor="black"
-        hat="none"
-        hatColor="green"
-        lashes={false}
-        lipColor="purple"
-        mouth="open"
-        showBackground={true}
-        size={50}
-        skinTone="brown"
-      />
+      {avatar ? (
+        <BigHead
+          accessory={avatar.accessory}
+          bgColor={avatar.bgColor}
+          bgShape="circle"
+          body={avatar.body}
+          clothing={avatar.cloth}
+          clothingColor={avatar.clothColor}
+          eyebrows={avatar.eyeBrow}
+          eyes={avatar.eye}
+          facialHair={avatar.facialHair}
+          graphic={avatar.accessory}
+          hair={avatar.hair}
+          hairColor={avatar.hairColor}
+          hat={avatar.hat}
+          hatColor={avatar.hatColor}
+          lashes={false}
+          lipColor={avatar.lipColor}
+          mouth={avatar.mouth}
+          showBackground={true}
+          size={50}
+          skinTone={avatar.skinTone}
+        />
+      ) : (
+        // <BigHead
+        //   accessory={avatar.accessory}
+        //   bgColor={avatar.bgColor}
+        //   bgShape="circle"
+        //   body="chest"
+        //   clothing={avatar.cloth}
+        //   clothingColor={avatar.clothColor}
+        //   eyebrows="angry"
+        //   eyes="wink"
+        //   facialHair="mediumBeard"
+        //   graphic="vue"
+        //   hair="short"
+        //   hairColor="black"
+        //   hat="none"
+        //   hatColor="green"
+        //   lashes={false}
+        //   lipColor="purple"
+        //   mouth="open"
+        //   showBackground={true}
+        //   size={50}
+        //   skinTone="brown"
+        // />
+        // <Text>teste</Text>
+        <Icon name="person" />
+      )}
 
       <Name>{name}</Name>
 

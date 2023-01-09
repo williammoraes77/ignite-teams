@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { FlatList, Alert, TextInput, Keyboard } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import {
+  useRoute,
+  useNavigation,
+  useFocusEffect,
+} from "@react-navigation/native";
 
 import { AppError } from "@utils/AppError";
 
@@ -21,6 +25,7 @@ import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 
 import { Container, Form, HeaderList, NumberOfPlayers } from "./styles";
+import { PlayerAvatarDTO } from "@storage/player/PlayerAvatarDTO";
 
 type RouteParams = {
   group: string;
@@ -46,7 +51,6 @@ export function Players() {
         "Informe o nome da pessoa para adicionar."
       );
     }
-
     const newPlayer = {
       name: newPlayerName,
       team,
@@ -114,13 +118,20 @@ export function Players() {
     ]);
   }
 
-  function handleAvatar(player: string) {
-    navigation.navigate("playerAvatar", { player });
+  function handleAvatar(player: PlayerStorageDTO, name: string) {
+    navigation.navigate("playerAvatar", { player, group, team });
   }
 
   useEffect(() => {
     fetchPlayersByTeam();
   }, [team]);
+
+  useEffect(() => {
+    const focusHandler = navigation.addListener("focus", () => {
+      fetchPlayersByTeam();
+    });
+    return focusHandler;
+  }, [navigation]);
 
   return (
     <Container>
@@ -168,8 +179,10 @@ export function Players() {
           renderItem={({ item }) => (
             <PlayerCard
               name={item.name}
+              avatar={item.avatar}
               onRemove={() => handlePlayerRemove(item.name)}
-              onPress={() => handleAvatar(item.name)}
+              onPress={() => handleAvatar(item, item.name)}
+              // onPress={() => handleInfo(item)}
             />
           )}
           ListEmptyComponent={() => (

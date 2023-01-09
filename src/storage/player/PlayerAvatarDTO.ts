@@ -1,6 +1,4 @@
-export type PlayerStorageDTO = {
-  name: string;
-  team: string;
+export type PlayerAvatarDTO = {
   avatar?: {
     acessory: string;
     bgColor: string;

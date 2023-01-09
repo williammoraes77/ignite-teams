@@ -1,36 +1,64 @@
 import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Alert } from "react-native";
 
-import { Container, Content, AvatarContent, Icon } from "./styles";
+import {
+  Container,
+  Content,
+  AvatarContent,
+  Icon,
+  BackButton,
+  BackIcon,
+  HeaderContainer,
+  LogoContent,
+  Logo,
+} from "./styles";
+
+import logoImg from "@assets/logo.png";
 
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
 import { Button } from "@components/Button";
 import { BigHead } from "react-native-bigheads";
+import { playerAddByGroup } from "@storage/player/playerAddByGroup";
+import { AppError } from "@utils/AppError";
+import { playerAddByGroupAvatar } from "@storage/player/playerAddByGroupAvatar";
+import { playerRemoveByGroup } from "@storage/player/playerRemoveByGroup";
+
+type RouteParams = {
+  player: string;
+  group: string;
+  team: string;
+};
 
 export function PlayerAvatar() {
+  const route = useRoute();
+
+  const { player, group, team } = route.params as RouteParams;
+
   const [avatar, setAvatar] = useState("");
+  const [avatarSelected, setAvatarSelected] = useState(false);
   const [playerName, SetPlayerName] = useState("");
-  const [acessory, setAcessory] = useState("");
-  const [bgColor, setBgColor] = useState("");
-  const [body, setBody] = useState("");
-  const [cloth, setCloth] = useState("");
-  const [clothColor, setClothColor] = useState("");
-  const [eyeBrow, setEyeBrow] = useState("");
-  const [eye, setEye] = useState("");
-  const [facialHair, setFacialHair] = useState("");
-  const [hair, setHair] = useState("");
-  const [hairColor, setHairColor] = useState("");
-  const [hat, setHat] = useState("");
-  const [hatColor, setHatColor] = useState("");
-  const [lipColor, setLipColors] = useState("");
-  const [mouth, setMouth] = useState("");
-  const [skinTone, setSkinTone] = useState("");
+  const [acessory, setAcessory] = useState("roundGlasses");
+  const [bgColor, setBgColor] = useState("blue");
+  const [body, setBody] = useState("chest");
+  const [cloth, setCloth] = useState("naked");
+  const [clothColor, setClothColor] = useState("white");
+  const [eyeBrow, setEyeBrow] = useState("raised");
+  const [eye, setEye] = useState("normal");
+  const [facialHair, setFacialHair] = useState("none");
+  const [hair, setHair] = useState("short");
+  const [hairColor, setHairColor] = useState("blonde");
+  const [hat, setHat] = useState("none");
+  const [hatColor, setHatColor] = useState("white");
+  const [lipColor, setLipColors] = useState("red");
+  const [mouth, setMouth] = useState("lips");
+  const [skinTone, setSkinTone] = useState("light");
 
   const navigation = useNavigation();
 
-  function handleGenerateAvatar() {
+  async function handleGenerateAvatar() {
+    setAvatarSelected(true);
     const acessories = [
       "roundGlasses",
       "tinyGlasses",
@@ -143,39 +171,18 @@ export function PlayerAvatar() {
     setMouth(mouths[SortNumber(9)]);
     setSkinTone(skinTones[SortNumber(6)]);
     setAvatar("avatar");
-    console.log("_______");
-    const nAvatar = {
-      acessory,
-      bgColor,
-      body,
-      cloth,
-      clothColor,
-      eyeBrow,
-      eye,
-      facialHair,
-      hair,
-      hairColor,
-      hat,
-      hatColor,
-      lipColor,
-      mouth,
-      skinTone,
-    };
-    handleAddAvatar("William", "GrupoA", "TimeA");
   }
 
   function SortNumber(limit: number) {
     const RandomNumber = Math.floor(Math.random() * limit);
-    console.log(RandomNumber);
 
     return RandomNumber;
   }
 
-  async function handleAddAvatar(name: string, team: string, group: string) {
-    const newAvatar = {
-      name,
+  async function handleAddAvatar() {
+    const newPlayer = {
+      name: player.name,
       team,
-      group,
       avatar: {
         acessory,
         bgColor,
@@ -194,19 +201,81 @@ export function PlayerAvatar() {
         skinTone,
       },
     };
+    await removePlayer();
+    try {
+      await playerAddByGroupAvatar(newPlayer, group);
+      handlePlayers();
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert("Nova pessoa", error.message);
+      } else {
+        console.log(error);
+        Alert.alert("Nova pessoa", "Não foi possível adicionar.");
+      }
+    }
+  }
 
-    console.log(newAvatar);
+  async function removePlayer() {
+    try {
+      await playerRemoveByGroup(player.name, group);
+    } catch (error) {
+      console.log(error);
+
+      Alert.alert("Remover pessoa", "Não foi possível remover essa pessoa.");
+    }
+  }
+
+  function handlePlayers() {
+    navigation.navigate("players", { group });
+    // navigation.navigate("groups");
   }
 
   return (
     <Container>
-      <Header showBackButton />
+      <HeaderContainer>
+        <BackButton onPress={handlePlayers}>
+          <BackIcon />
+        </BackButton>
+
+        <LogoContent>
+          <Logo source={logoImg} />
+        </LogoContent>
+      </HeaderContainer>
 
       <Content>
-        <Highlight title="William" subtitle="Selecione o avatar" />
-
+        <Highlight title={player.name} subtitle="Selecione o avatar" />
+        <Button
+          title="Gerar Avatar"
+          type="THIRD"
+          onPress={handleGenerateAvatar}
+        />
         <AvatarContent>
-          {avatar ? (
+          {player.avatar && !avatarSelected && (
+            <BigHead
+              accessory={player.avatar.acessory}
+              // bgColor="orange"
+              bgColor={player.avatar.bgColor}
+              bgShape="circle"
+              // body="chest"
+              body={player.avatar.body}
+              clothing={player.avatar.cloth}
+              clothingColor={player.avatar.clothColor}
+              eyebrows={player.avatar.eyeBrow}
+              eyes={player.avatar.eye}
+              facialHair={player.avatar.facialHair}
+              hair={player.avatar.hair}
+              hairColor={player.avatar.hairColor}
+              hat={player.avatar.hat}
+              hatColor={player.avatar.hatColor}
+              lashes={false}
+              lipColor={player.avatar.lipColor}
+              mouth={player.avatar.mouth}
+              showBackground={true}
+              skinTone={player.avatar.skinTone}
+              size={350}
+            />
+          )}
+          {avatarSelected && (
             <BigHead
               accessory={acessory}
               // bgColor="orange"
@@ -230,11 +299,13 @@ export function PlayerAvatar() {
               skinTone={skinTone}
               size={350}
             />
-          ) : (
-            <Icon name="person" />
           )}
+          {!player.avatar && !avatarSelected && <Icon name="person" />}
         </AvatarContent>
-        <Button title="Gerar Avatar" onPress={handleGenerateAvatar} />
+
+        {avatarSelected && (
+          <Button title="Salvar" onPress={handleAddAvatar} type="PRIMARY" />
+        )}
       </Content>
     </Container>
   );

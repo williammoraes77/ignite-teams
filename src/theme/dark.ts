@@ -6,6 +6,8 @@ export default {
     TEXT: "#FFFFFF",
     TEXT_BUTTON: "#FFFFFF",
 
+    BUTTON_AVATAR: "#1E90FF",
+
     ICON: "#FFFFFF",
     GREEN_700: "#00875F",
     GREEN_500: "#00B37E",

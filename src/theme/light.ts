@@ -5,6 +5,7 @@ export default {
     LOGO: "#121214",
     TEXT: "#121214",
     TEXT_BUTTON: "#FFFFFF",
+    BUTTON_AVATAR: "#1E90FF",
 
     ICON: "#202024",
     GREEN_700: "#00875F",
