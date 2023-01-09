@@ -13,7 +13,7 @@
 
 <p>Projeto desenvolvido durante o curso ignite da Rocketseat. Além do conteúdo realizado no curso adicionei algumas features nele como diferenciais, sendo elas:</p>
 
-<p>* Avatar para o jogador - É possível adicionar um avatar para cada player. Foi desenvolvido para que o avatar seja gerado de forma aleatória e que o usuário consiga simular quantas vezes desejar</p>
+<p>* Avatar para o jogador - É possível adicionar um avatar para cada player.</p>
 
 <p>* Funçao para o avatar ser gerado de forma aleatoria e que o usuario consiga simular quantas vezes desejar ate encontar o avatar desejado</p>
 
@@ -23,10 +23,24 @@
 
 <p>* Alteração no tema do App. Quando o usuário faz a mudança da aparência no seu dispositivo com dark/light, o tema do aplicativo é alterado de forma automátia</p>
 
-## Imagens
+## GIF
 
 <div align="center">
   <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/ignite.gif" alt="App theme" height="425">
+</div>
+
+<hr />
+
+## Imagens
+
+<div align="center">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items1-dark.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-dark.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items2-light.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items3-dark.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-dark.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items4-light.png" alt="App theme" height="300">
+  <img align="center" src="https://github.com/williammoraes77/ignite-teams/blob/main/assets/items5-light.png" alt="App theme" height="300">
 </div>
 
 <hr />
