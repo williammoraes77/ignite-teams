@@ -38,29 +38,6 @@ export function PlayerCard({ name, avatar, onRemove, ...rest }: Props) {
           skinTone={avatar.skinTone}
         />
       ) : (
-        // <BigHead
-        //   accessory={avatar.accessory}
-        //   bgColor={avatar.bgColor}
-        //   bgShape="circle"
-        //   body="chest"
-        //   clothing={avatar.cloth}
-        //   clothingColor={avatar.clothColor}
-        //   eyebrows="angry"
-        //   eyes="wink"
-        //   facialHair="mediumBeard"
-        //   graphic="vue"
-        //   hair="short"
-        //   hairColor="black"
-        //   hat="none"
-        //   hatColor="green"
-        //   lashes={false}
-        //   lipColor="purple"
-        //   mouth="open"
-        //   showBackground={true}
-        //   size={50}
-        //   skinTone="brown"
-        // />
-        // <Text>teste</Text>
         <Icon name="person" />
       )}
 
