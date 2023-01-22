@@ -11,7 +11,6 @@ import themes from "./src/theme";
 import { Loading } from "@components/Loading";
 
 import { Routes } from "./src/routes";
-import { useTheme, UserThemeProvider } from "@hooks/userTheme";
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -22,14 +21,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <UserThemeProvider>
-        <StatusBar
-          barStyle={deviceTheme === "dark" ? "light-content" : "dark-content"}
-          backgroundColor="transparent"
-          translucent
-        />
-        {fontsLoaded ? <Routes /> : <Loading />}
-      </UserThemeProvider>
+      <StatusBar
+        barStyle={deviceTheme === "dark" ? "light-content" : "dark-content"}
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }

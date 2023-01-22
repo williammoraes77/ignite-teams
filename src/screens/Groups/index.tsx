@@ -13,7 +13,6 @@ import { Button } from "@components/Button";
 
 import { Container } from "./styles";
 import { Loading } from "@components/Loading";
-import { useTheme } from "@hooks/userTheme";
 
 export function Groups() {
   const [isLoading, setIsLoading] = useState(true);

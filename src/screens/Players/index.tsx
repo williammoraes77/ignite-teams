@@ -114,8 +114,6 @@ export function Players() {
   }
 
   function handleAvatar(player: PlayerStorageDTO, name: string) {
-    console.log("handleAvatar function");
-    console.log(player);
     navigation.navigate("playerAvatar", { player, group, team });
   }
 
