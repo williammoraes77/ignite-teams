@@ -21,7 +21,7 @@
 
 <p>* Inclusão do avatar salvo pelo usuário no componente PlayerCard.</p>
 
-<p>* Alteração no tema do App. Quando o usuário faz a mudança da aparência no seu dispositivo com dark/light, o tema do aplicativo é alterado de forma automátia</p>
+<p>* Alteração no tema do App. Quando o usuário faz a mudança da aparência no seu dispositivo com dark/light, o tema do aplicativo é alterado de forma automática</p>
 
 ## GIF
 
