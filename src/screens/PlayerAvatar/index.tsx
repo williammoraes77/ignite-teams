@@ -39,21 +39,21 @@ export function PlayerAvatar() {
   const [avatar, setAvatar] = useState("");
   const [avatarSelected, setAvatarSelected] = useState(false);
   const [playerName, SetPlayerName] = useState("");
-  const [acessory, setAcessory] = useState("roundGlasses");
-  const [bgColor, setBgColor] = useState("blue");
-  const [body, setBody] = useState("chest");
-  const [cloth, setCloth] = useState("naked");
-  const [clothColor, setClothColor] = useState("white");
-  const [eyeBrow, setEyeBrow] = useState("raised");
-  const [eye, setEye] = useState("normal");
-  const [facialHair, setFacialHair] = useState("none");
-  const [hair, setHair] = useState("short");
-  const [hairColor, setHairColor] = useState("blonde");
-  const [hat, setHat] = useState("none");
-  const [hatColor, setHatColor] = useState("white");
-  const [lipColor, setLipColors] = useState("red");
-  const [mouth, setMouth] = useState("lips");
-  const [skinTone, setSkinTone] = useState("light");
+  const [acessory, setAcessory] = useState("");
+  const [bgColor, setBgColor] = useState("");
+  const [body, setBody] = useState("");
+  const [cloth, setCloth] = useState("");
+  const [clothColor, setClothColor] = useState("");
+  const [eyeBrow, setEyeBrow] = useState("");
+  const [eye, setEye] = useState("");
+  const [facialHair, setFacialHair] = useState("");
+  const [hair, setHair] = useState("");
+  const [hairColor, setHairColor] = useState("");
+  const [hat, setHat] = useState("");
+  const [hatColor, setHatColor] = useState("");
+  const [lipColor, setLipColors] = useState("");
+  const [mouth, setMouth] = useState("");
+  const [skinTone, setSkinTone] = useState("");
 
   const navigation = useNavigation();
 
@@ -94,6 +94,7 @@ export function PlayerAvatar() {
     setMouth(f_mouth);
     setSkinTone(f_skinTone);
     setAvatar("avatar");
+    // console.log("Gerar avatar acessory => " + acessory);
   }
 
   async function handleAddAvatar() {
@@ -120,7 +121,7 @@ export function PlayerAvatar() {
     };
     await removePlayer();
     try {
-      await playerAddByGroupAvatar(newPlayer, group);
+      await playerAddByGroupAvatar(newPlayer as PlayerStorageDTO, group);
       handlePlayers();
     } catch (error) {
       if (error instanceof AppError) {
@@ -144,7 +145,6 @@ export function PlayerAvatar() {
 
   function handlePlayers() {
     navigation.navigate("players", { group });
-    // navigation.navigate("groups");
   }
 
   return (
@@ -195,10 +195,8 @@ export function PlayerAvatar() {
           {avatarSelected && (
             <BigHead
               accessory={acessory}
-              // bgColor="orange"
               bgColor={bgColor}
               bgShape="circle"
-              // body="chest"
               body={body}
               clothing={cloth}
               clothingColor={clothColor}

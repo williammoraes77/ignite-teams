@@ -16,7 +16,7 @@ export function PlayerCard({ name, avatar, onRemove, ...rest }: Props) {
     <Container {...rest}>
       {avatar ? (
         <BigHead
-          accessory={avatar.accessory}
+          accessory={avatar.acessory}
           bgColor={avatar.bgColor}
           bgShape="circle"
           body={avatar.body}
@@ -40,9 +40,7 @@ export function PlayerCard({ name, avatar, onRemove, ...rest }: Props) {
       ) : (
         <Icon name="person" />
       )}
-
       <Name>{name}</Name>
-
       <ButtonIcon icon="close" type="SECONDARY" onPress={onRemove} />
     </Container>
   );

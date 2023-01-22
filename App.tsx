@@ -17,7 +17,8 @@ export default function App() {
   const deviceTheme = useColorScheme();
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
 
-  const theme = themes[deviceTheme] || themes.dark;
+  const theme =
+    themes[deviceTheme === "dark" ? "dark" : "light"] || themes.dark;
 
   return (
     <ThemeProvider theme={theme}>
